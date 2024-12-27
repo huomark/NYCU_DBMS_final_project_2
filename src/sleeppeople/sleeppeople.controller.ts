@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { SleeppeopleService } from './sleeppeople.service';
 import { Prisma } from '@prisma/client';
+import { GetSleepPRDto } from './dto/get-sleep-pr.dto';
+import { Validate } from 'class-validator';
 
 @Controller('sleeppeople')
 export class SleeppeopleController {
@@ -19,6 +21,11 @@ export class SleeppeopleController {
   @Get('average-sleep-duration')
   getAverageSleepDuration() {
     return this.sleeppeopleService.getAverageSleepDuration();
+  }
+
+  @Get('sleep-pr')
+  getSleepPR(@Query() query: GetSleepPRDto) {
+    return this.sleeppeopleService.getSleepPR(query.duration);
   }
 
   @Get()

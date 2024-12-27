@@ -61,4 +61,20 @@ export class SleeppeopleService {
       throw new Error('Failed to calculate average sleep duration');
     }
   }
+
+  async getSleepPR(duration: number): Promise<number> {
+    const durationNum = typeof duration === 'string' ? parseFloat(duration) : duration;
+    if (isNaN(durationNum)) {
+      throw new Error('Duration must be a number');
+    }
+    const totalCount = await this.databaseService.sleepHealthLifestyleDataset.count();
+    const lessThanOrEqualCount = await this.databaseService.sleepHealthLifestyleDataset.count({
+      where: {
+        sleepDurationHours: {
+          lte: durationNum,
+        },
+      },
+    });
+    return (lessThanOrEqualCount / totalCount) * 100;
+  }
 }
