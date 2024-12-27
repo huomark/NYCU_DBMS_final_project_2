@@ -77,4 +77,21 @@ export class SleeppeopleService {
     });
     return (lessThanOrEqualCount / totalCount) * 100;
   }
+
+  async getAverageSleepDurationByOccupation(occupation: string) {
+    try {
+      const result = await this.databaseService.sleepHealthLifestyleDataset.aggregate({
+        _avg: {
+          sleepDurationHours: true,
+        },
+        where: {
+          occupation: occupation,
+        },
+      });
+      return result._avg.sleepDurationHours;
+    } catch (error) {
+      console.error('Error calculating average sleep duration by occupation:', error.message, error.stack);
+      throw new Error('Failed to calculate average sleep duration by occupation');
+    }
+  }
 }
