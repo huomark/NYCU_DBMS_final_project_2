@@ -16,6 +16,11 @@ export class SleeppeopleController {
     return this.sleeppeopleService.create(createSleeppersonDtos);
   }
 
+  @Get('average-sleep-duration')
+  getAverageSleepDuration() {
+    return this.sleeppeopleService.getAverageSleepDuration();
+  }
+
   @Get()
   findAll() {
     return this.sleeppeopleService.findAll();

@@ -47,4 +47,18 @@ export class SleeppeopleService {
       }
     })
   }
+
+  async getAverageSleepDuration() {
+    try {
+      const result = await this.databaseService.sleepHealthLifestyleDataset.aggregate({
+        _avg: {
+          sleepDurationHours: true,
+        },
+      });
+      return result._avg.sleepDurationHours;
+    } catch (error) {
+      console.error('Error calculating average sleep duration:', error.message, error.stack);
+      throw new Error('Failed to calculate average sleep duration');
+    }
+  }
 }
