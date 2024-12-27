@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SleepHealthLifestyleDataset {
+  personId                   Int      @id @default(autoincrement()) @map("Person ID")
+  gender                     String   @map("Gender")
+  age                        Int      @map("Age")
+  occupation                 String   @map("Occupation")
+  sleepDurationHours         Float    @map("Sleep Duration (hours)")
+  qualityOfSleep             Float    @map("Quality of Sleep (scale: 1-10)")
+  physicalActivityLevel      Int      @map("Physical Activity Level (minutes/day)")
+  stressLevel                Int      @map("Stress Level (scale: 1-10)")
+  bmiCategory                String   @map("BMI Category")
+  bloodPressure              String   @map("Blood Pressure (systolic/diastolic)")
+  heartRate                  Int      @map("Heart Rate (bpm)")
+  dailySteps                 Int      @map("Daily Steps")
+  sleepDisorder              String   @map("Sleep Disorder")
+
+  @@map("sleep_health_lifestyle_dataset")
+}
