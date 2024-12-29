@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
 import { SleeppeopleService } from './sleeppeople.service';
 import { Prisma } from '@prisma/client';
 import { GetSleepPRDto } from './dto/get-sleep-pr.dto';
@@ -29,6 +29,13 @@ export class SleeppeopleController {
       return this.sleeppeopleService.getAverageSleepDurationByOccupation(occupation);
     }
     return this.sleeppeopleService.getAverageSleepDuration();
+  }
+
+  @Get('average-sleep-duration-by-age-range')
+  getAverageSleepDurationByAgeRange(
+      @Query('minAge', ParseIntPipe) minAge: number = 0, 
+      @Query('maxAge', ParseIntPipe) maxAge: number = 100) {
+    return this.sleeppeopleService.getAverageSleepDurationByAgeRange(minAge, maxAge);
   }
 
   @Get('sleep-pr')

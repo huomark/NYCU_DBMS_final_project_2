@@ -11,6 +11,7 @@ import AverageSleepDuration from './pages/AverageSleepDuration'
 import AverageSleepDurationByOccupation from './pages/AverageSleepDurationByOccupation'
 import SleepPR from './pages/SleepPR'
 import FindOne from './pages/FindOne';
+import AverageSleepDurationByAgeRange from './pages/AverageSleepDurationByAgeRange';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/create" element={<CreateRecord />} />
         <Route path="/update" element={<UpdateRecord />} />
         <Route path="/delete" element={<DeleteRecord />} />
+        <Route path="/average-sleep-duration-by-age-range" element={<AverageSleepDurationByAgeRange />} />
       </Routes>
     </Router>
   );

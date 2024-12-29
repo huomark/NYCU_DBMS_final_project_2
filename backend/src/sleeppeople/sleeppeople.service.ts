@@ -94,4 +94,24 @@ export class SleeppeopleService {
       throw new Error('Failed to calculate average sleep duration by occupation');
     }
   }
+
+  async getAverageSleepDurationByAgeRange(minAge: number, maxAge: number) {
+    try {
+      const result = await this.databaseService.sleepHealthLifestyleDataset.aggregate({
+        _avg: {
+          sleepDurationHours: true,
+        },
+        where: {
+          age: {
+            gte: minAge,
+            lte: maxAge,
+          },
+        },
+      });
+      return result._avg.sleepDurationHours;
+    } catch (error) {
+      console.error('Error calculating average sleep duration by age range:', error.message, error.stack);
+      throw new Error('Failed to calculate average sleep duration by age range');
+    }
+  }
 }

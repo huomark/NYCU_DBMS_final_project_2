@@ -42,3 +42,10 @@ export const findOne = async (id: number): Promise<any> => {
   const response = await api.get(`/sleeppeople/${id}`);
   return response.data;
 }
+
+export const getAverageSleepDurationByAgeRange = async (minAge: number, maxAge: number): Promise<number> => {
+  const response = await api.get('/sleeppeople/average-sleep-duration-by-age-range', {
+    params: { minAge, maxAge },
+  });
+  return response.data;
+}

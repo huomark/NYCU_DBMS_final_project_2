@@ -255,6 +255,26 @@ http://localhost:3000/sleeppeople
 
 ---
 
+### **10. Get Average Sleep Duration by Age Range**
+
+**GET** `/sleeppeople/average-sleep-duration-by-age-range`
+
+- **Description**: Retrieve the average sleep duration for a specified age range.
+
+- **Query Parameters**:
+  
+  - `minAge` (required, number): The minimum age of the range.
+  - `maxAge` (required, number): The maximum age of the range.
+
+- **Response**:
+  
+  ```json
+  {
+    "averageSleepDuration": number
+  }
+
+--- 
+
 ### **Error Handling**
 
 For all endpoints:
