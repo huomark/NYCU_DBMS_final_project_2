@@ -275,6 +275,25 @@ http://localhost:3000/sleeppeople
 
 --- 
 
+### **11. Get Average Sleep Duration by Gender**
+
+**GET** `/sleeppeople/average-sleep-duration-by-gender`
+
+- **Description**: Retrieve the average sleep duration for a specified gender.
+
+- **Query Parameters**:
+  
+  - `gender` (required, string): The gender ("Male" or "Female").
+
+- **Response**:
+  
+  ```json
+  {
+    "averageSleepDuration": number
+  }
+
+---
+
 ### **Error Handling**
 
 For all endpoints:
