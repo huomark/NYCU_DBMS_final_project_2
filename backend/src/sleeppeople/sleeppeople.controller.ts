@@ -19,6 +19,11 @@ export class SleeppeopleController {
   }
 
   @Get('average-sleep-duration')
+  getAverageSleepDuration() {
+    return this.sleeppeopleService.getAverageSleepDuration();
+  }
+
+  @Get('average-sleep-duration-by-occupation')
   getAverageSleepDurationByOccupation(@Query('occupation') occupation?: string) {
     if (occupation) {
       return this.sleeppeopleService.getAverageSleepDurationByOccupation(occupation);
