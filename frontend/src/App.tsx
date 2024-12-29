@@ -4,8 +4,13 @@ import viteLogo from '/vite.svg'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Dashboard from './pages/DashBoard'
+import CreateRecord from './pages/CreateRecord'
+import UpdateRecord from './pages/UpdateRecord';
+import DeleteRecord from './pages/DeleteRecord';
 import AverageSleepDuration from './pages/AverageSleepDuration'
 import AverageSleepDurationByOccupation from './pages/AverageSleepDurationByOccupation'
+import SleepPR from './pages/SleepPR'
+import FindOne from './pages/FindOne';
 
 const App: React.FC = () => {
   return (
@@ -14,6 +19,11 @@ const App: React.FC = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/average-sleep-duration" element={<AverageSleepDuration />} />
         <Route path="/average-sleep-duration-by-occupation" element={<AverageSleepDurationByOccupation />} />
+        <Route path="/sleep-pr" element={<SleepPR />} />
+        <Route path="/find-one" element={<FindOne />} />
+        <Route path="/create" element={<CreateRecord />} />
+        <Route path="/update" element={<UpdateRecord />} />
+        <Route path="/delete" element={<DeleteRecord />} />
       </Routes>
     </Router>
   );

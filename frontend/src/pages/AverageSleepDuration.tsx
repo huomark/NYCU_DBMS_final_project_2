@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAverageSleepDuration } from '../api/sleeppeople';
+import { Link } from 'react-router-dom';
 
 const AverageSleepDuration: React.FC = () => {
   const [averageSleepDuration, setAverageSleepDuration] = useState<number | null>(null);
@@ -23,6 +24,12 @@ const AverageSleepDuration: React.FC = () => {
       <p className="text-lg mb-8">
         {averageSleepDuration !== null ? `Average Sleep Duration: ${averageSleepDuration} hours` : 'Loading...'}
       </p>
+      <Link
+        to="/"
+        className="inline-block px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-lg hover:bg-gray-800 transition transform hover:scale-105 focus:outline-none focus:ring focus:ring-gray-500"
+      >
+        Home
+      </Link>
     </div>
   );
 };

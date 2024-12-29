@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAverageSleepDurationByOccupation } from '../api/sleeppeople';
+import { Link } from 'react-router-dom';
 
 const AverageSleepDurationByOccupation: React.FC = () => {
   const [occupation, setOccupation] = useState('');
@@ -38,6 +39,12 @@ const AverageSleepDurationByOccupation: React.FC = () => {
             : 'Occupation not found: -1 hours'}
         </p>
       )}
+      <Link 
+        to="/" 
+        className="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
+      >
+        Home
+      </Link>
     </div>
   );
 };
