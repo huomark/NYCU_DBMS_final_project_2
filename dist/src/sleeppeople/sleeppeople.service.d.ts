@@ -1,0 +1,85 @@
+import { Prisma } from '@prisma/client';
+import { DatabaseService } from 'src/database/database.service';
+export declare class SleeppeopleService {
+    private readonly databaseService;
+    constructor(databaseService: DatabaseService);
+    create(createSleeppersonDto: Prisma.SleepHealthLifestyleDatasetCreateInput): Promise<{
+        gender: string;
+        age: number;
+        occupation: string;
+        sleepDurationHours: number;
+        qualityOfSleep: number;
+        physicalActivityLevel: number;
+        stressLevel: number;
+        bmiCategory: string;
+        bloodPressure: string;
+        heartRate: number;
+        dailySteps: number;
+        sleepDisorder: string;
+        personId: number;
+    }>;
+    create2(createSleeppersonDtos: Prisma.SleepHealthLifestyleDatasetCreateManyInput[]): Promise<Prisma.BatchPayload>;
+    findAll(): Promise<{
+        gender: string;
+        age: number;
+        occupation: string;
+        sleepDurationHours: number;
+        qualityOfSleep: number;
+        physicalActivityLevel: number;
+        stressLevel: number;
+        bmiCategory: string;
+        bloodPressure: string;
+        heartRate: number;
+        dailySteps: number;
+        sleepDisorder: string;
+        personId: number;
+    }[]>;
+    findOne(personId: number): Promise<{
+        gender: string;
+        age: number;
+        occupation: string;
+        sleepDurationHours: number;
+        qualityOfSleep: number;
+        physicalActivityLevel: number;
+        stressLevel: number;
+        bmiCategory: string;
+        bloodPressure: string;
+        heartRate: number;
+        dailySteps: number;
+        sleepDisorder: string;
+        personId: number;
+    }>;
+    update(personId: number, updateSleeppersonDto: Prisma.SleepHealthLifestyleDatasetUpdateInput): Promise<{
+        gender: string;
+        age: number;
+        occupation: string;
+        sleepDurationHours: number;
+        qualityOfSleep: number;
+        physicalActivityLevel: number;
+        stressLevel: number;
+        bmiCategory: string;
+        bloodPressure: string;
+        heartRate: number;
+        dailySteps: number;
+        sleepDisorder: string;
+        personId: number;
+    }>;
+    remove(personId: number): Promise<{
+        gender: string;
+        age: number;
+        occupation: string;
+        sleepDurationHours: number;
+        qualityOfSleep: number;
+        physicalActivityLevel: number;
+        stressLevel: number;
+        bmiCategory: string;
+        bloodPressure: string;
+        heartRate: number;
+        dailySteps: number;
+        sleepDisorder: string;
+        personId: number;
+    }>;
+    getAverageSleepDuration(): Promise<number>;
+    getSleepPR(duration: number): Promise<number>;
+    getAverageSleepDurationByOccupation(occupation: string): Promise<number>;
+}
