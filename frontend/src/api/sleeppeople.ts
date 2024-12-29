@@ -49,3 +49,10 @@ export const getAverageSleepDurationByAgeRange = async (minAge: number, maxAge: 
   });
   return response.data;
 }
+
+export const getAverageSleepDurationByGender = async (gender: string): Promise<number> => {
+  const response = await api.get('/sleeppeople/average-sleep-duration-by-gender', {
+    params: { gender },
+  });
+  return response.data;
+};

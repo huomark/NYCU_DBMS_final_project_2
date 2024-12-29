@@ -38,6 +38,11 @@ export class SleeppeopleController {
     return this.sleeppeopleService.getAverageSleepDurationByAgeRange(minAge, maxAge);
   }
 
+  @Get('average-sleep-duration-by-gender')
+  getAverageSleepDurationByGender(@Query('gender') gender: string) {
+    return this.sleeppeopleService.getAverageSleepDurationByGender(gender);
+  }
+
   @Get('sleep-pr')
   getSleepPR(@Query() query: GetSleepPRDto) {
     return this.sleeppeopleService.getSleepPR(query.duration);

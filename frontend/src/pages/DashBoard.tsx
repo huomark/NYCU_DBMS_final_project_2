@@ -55,6 +55,12 @@ const Dashboard: React.FC = () => {
         >
           View Average Sleep Duration by Age Range
         </Link>
+        <Link 
+          to="/average-sleep-duration-by-gender" 
+          className="inline-block px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-lg hover:bg-gray-800 transition transform hover:scale-105 focus:outline-none focus:ring focus:ring-gray-500"
+        >
+          View Average Sleep Duration by Gender
+        </Link>
       </div>
     </div>
   );

@@ -114,4 +114,21 @@ export class SleeppeopleService {
       throw new Error('Failed to calculate average sleep duration by age range');
     }
   }
+
+  async getAverageSleepDurationByGender(gender: string) {
+    try {
+      const result = await this.databaseService.sleepHealthLifestyleDataset.aggregate({
+        _avg: {
+          sleepDurationHours: true,
+        },
+        where: {
+          gender: gender,
+        },
+      });
+      return result._avg.sleepDurationHours;
+    } catch (error) {
+      console.error('Error calculating average sleep duration by gender:', error.message, error.stack);
+      throw new Error('Failed to calculate average sleep duration by gender');
+    }
+  }
 }
