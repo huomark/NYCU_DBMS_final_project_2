@@ -5,15 +5,23 @@ import { findOne } from '../api/sleeppeople';
 const FindOne: React.FC = () => {
   const [id, setId] = useState('');
   const [personData, setPersonData] = useState<any | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       const data = await findOne(parseInt(id));
-      setPersonData(data);
+      if (data) {
+        setPersonData(data);
+        setErrorMessage(null);
+      } else {
+        setPersonData(null);
+        setErrorMessage('User not found');
+      }
     } catch (error) {
       console.error('Error fetching person data:', error);
       setPersonData(null);
+      setErrorMessage('Error fetching person data');
     }
   };
 
@@ -32,6 +40,9 @@ const FindOne: React.FC = () => {
           Submit
         </button>
       </form>
+      {errorMessage && (
+        <p className="text-red-500">{errorMessage}</p>
+      )}
       {personData && (
         <table className="table-auto bg-gray-800 text-white rounded-lg">
           <thead>
